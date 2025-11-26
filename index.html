@@ -1,0 +1,198 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGFUND - Arab Gulf Programme for Development</title>
+    <style>
+        /* Exact matching colors based on AGFUND site: Primary blue #1E3A8A, Secondary green #10B981, Accent gold #D97706, Background #F9FAFB, Text #111827 */
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #F9FAFB; color: #111827; line-height: 1.6; }
+        header { background-color: #1E3A8A; color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+        nav li { margin: 0 0.5rem; }
+        nav a { color: white; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; display: block; }
+        nav a:hover { color: #D97706; }
+        .hero { background: linear-gradient(rgba(30,58,138,0.7), rgba(30,58,138,0.7)), url('https://via.placeholder.com/1920x600?text=AGFUND+Hero+Image+Development'); background-size: cover; height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 70px; }
+        .hero h1 { font-size: 3rem; margin: 0; }
+        .hero p { font-size: 1.2rem; }
+        main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+        section { margin-bottom: 3rem; }
+        h2 { color: #1E3A8A; border-bottom: 2px solid #10B981; padding-bottom: 0.5rem; }
+        .program { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .btn { background-color: #10B981; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 1rem; }
+        .btn:hover { background-color: #059669; }
+        footer { background-color: #1E3A8A; color: white; text-align: center; padding: 2rem; }
+        .widget { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; overflow-x: auto; display: block; white-space: nowrap; }
+        th, td { border: 1px solid #D1D5DB; padding: 0.5rem; text-align: left; min-width: 120px; }
+        th { background-color: #F3F4F6; }
+        form { display: flex; flex-direction: column; max-width: 400px; }
+        form input, form textarea { margin-bottom: 1rem; padding: 0.5rem; border: 1px solid #D1D5DB; border-radius: 4px; }
+        blockquote { border-left: 4px solid #10B981; padding-left: 1rem; margin: 1rem 0; font-style: italic; }
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero { height: 40vh; margin-top: 60px; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            nav ul { flex-direction: column; align-items: center; }
+            nav li { margin: 0.25rem 0; }
+            main { margin: 1rem auto; padding: 0 0.5rem; }
+            .program { grid-template-columns: 1fr; gap: 1rem; }
+            table { font-size: 0.875rem; }
+            th, td { min-width: 100px; padding: 0.25rem; }
+            form { max-width: 100%; }
+        }
+        @media (max-width: 480px) {
+            header { padding: 0.5rem 0; }
+            nav a { padding: 0.25rem 0.5rem; }
+            .hero { height: 30vh; }
+            .hero h1 { font-size: 1.5rem; }
+            .card { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#prize">Prize</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div>
+            <h1>Arab Gulf Programme for Development (AGFUND)</h1>
+            <p>Supporting sustainable human development and poverty alleviation</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="about">
+            <h2>About AGFUND</h2>
+            <p>The Arab Gulf Programme for Development (AGFUND) is a multilateral development finance institution founded in 1980 to support sustainable human development and poverty alleviation. It focuses on vulnerable groups (women, children, people with disabilities, displaced persons) to enable dignified social/economic lives. AGFUND aligns with UN SDGs 2030, emphasizing education, financial inclusion, and innovation.</p>
+            <table>
+                <tr><th>Metric</th><th>Value</th></tr>
+                <tr><td>Founded</td><td>1980, Riyadh, Saudi Arabia</td></tr>
+                <tr><td>Founder</td><td>HRH Prince Talal bin Abdulaziz Al Saud</td></tr>
+                <tr><td>Supported Projects</td><td>1,713 in 133 countries</td></tr>
+                <tr><td>Partnerships</td><td>450+ (UN, NGOs, governments)</td></tr>
+            </table>
+        </section>
+
+        <section id="history">
+            <h2>History and Founding</h2>
+            <p>Founded on the initiative of HRH Prince Talal bin Abdulaziz with support from Arab Gulf leaders (Kuwait City meeting, April 21, 1980). Key milestones: 1997 microfinance initiative; 1999 launch of International Prize.</p>
+            <blockquote>"Human being is human being wherever exists" – Prince Talal</blockquote>
+        </section>
+
+        <section id="mission">
+            <h2>Mission, Vision, and Strategy</h2>
+            <p><strong>Mission:</strong> Support sustainable human development by identifying successful experiences, networking partners, and providing grants/equity for projects benefiting target groups.</p>
+            <p><strong>Vision:</strong> A world where vulnerable groups exercise civil rights, lead dignified lives, and integrate into production processes via education, skills, and financial inclusion.</p>
+            <h3>Strategic Pillars</h3>
+            <ul>
+                <li>Women's Empowerment</li>
+                <li>Early Childhood Development</li>
+                <li>Open Education</li>
+                <li>Civil Society</li>
+                <li>Financial Inclusion</li>
+            </ul>
+        </section>
+
+        <section id="programs">
+            <h2>Key Programs</h2>
+            <div class="program">
+                <div class="card">
+                    <h3>Financial Inclusion</h3>
+                    <p>Direct access to poor via microfinance banks. Stats: 7M beneficiaries, $1.06B loans.</p>
+                    <a href="#" class="btn">Apply</a>
+                </div>
+                <div class="card">
+                    <h3>Projects Funding</h3>
+                    <p>Grants/equity for development projects in 5 pillars. Total: 1,750+ projects funded.</p>
+                    <a href="#" class="btn">Submit Proposal</a>
+                </div>
+                <div class="card">
+                    <h3>Prince Talal International Prize</h3>
+                    <p>Annual $1M USD prize for innovation in human development. 2025 Theme: Affordable and Clean Energy (SDG 7).</p>
+                    <a href="#prize" class="btn">Nominate</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="prize">
+            <h2>Prince Talal International Prize for Human Development</h2>
+            <p>Annual $1M USD prize (since 1999) to incite innovation. Categories:</p>
+            <table>
+                <tr><th>Category</th><th>Description</th><th>Prize</th></tr>
+                <tr><td>1</td><td>UN agencies/international NGOs</td><td>$400,000</td></tr>
+                <tr><td>2</td><td>National NGOs</td><td>$300,000</td></tr>
+                <tr><td>3</td><td>Governmental bodies</td><td>$200,000</td></tr>
+                <tr><td>4</td><td>Individuals</td><td>$100,000</td></tr>
+            </table>
+            <p><strong>Deadline:</strong> January 30, 2026</p>
+            <a href="https://agfund.org/en/thePrize/nomination" class="btn">Nomination Form</a>
+            <h3>Eligibility & Process</h3>
+            <p>Projects must be completed/evaluated, innovative, align with theme. Third-party nomination only.</p>
+            <h3>Past Winners</h3>
+            <ul>
+                <li>2025: UN Environment Programme (Cat 1)</li>
+                <li>2024: Ocean conservation (Cat 1)</li>
+                <!-- More from KB -->
+            </ul>
+        </section>
+
+        <section id="news">
+            <h2>Recent News</h2>
+            <ul>
+                <li>Nov 24, 2025: Queen Sofia attends 2025 Prize ceremony in Madrid.</li>
+                <li>Jun 30, 2025: ACG commits to $19.6B disbursements.</li>
+                <!-- More from KB -->
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Arab Gulf Programme for Development, 8360 Prince Satam ibn Abdul Aziz – Ar rafiah, Riyadh 12751-4694, Kingdom of Saudi Arabia.</p>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="4"></textarea>
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AGFUND. All rights reserved.</p>
+        <p>Address: Riyadh, Saudi Arabia | Email: info@agfund.org</p>
+    </footer>
+
+    <!-- AI Avatar Widget Embed -->
+    <div class="widget">
+        <script src="https://thynkbot.thynkwise.co.in/embed.js" data-bot-id="ba8b4009-d78d-485f-b96d-a1f5f8585692"></script>
+    </div>
+
+    <script>
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```
