@@ -1,198 +1,2147 @@
-```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGFUND - Arab Gulf Programme for Development</title>
+    <title>AGFUND - Arab Gulf Programme for Development | البرنامج العربي الخليجي للتنمية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Exact matching colors based on AGFUND site: Primary blue #1E3A8A, Secondary green #10B981, Accent gold #D97706, Background #F9FAFB, Text #111827 */
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #F9FAFB; color: #111827; line-height: 1.6; }
-        header { background-color: #1E3A8A; color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-        nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav li { margin: 0 0.5rem; }
-        nav a { color: white; text-decoration: none; font-weight: bold; padding: 0.5rem 1rem; display: block; }
-        nav a:hover { color: #D97706; }
-        .hero { background: linear-gradient(rgba(30,58,138,0.7), rgba(30,58,138,0.7)), url('https://via.placeholder.com/1920x600?text=AGFUND+Hero+Image+Development'); background-size: cover; height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 70px; }
-        .hero h1 { font-size: 3rem; margin: 0; }
-        .hero p { font-size: 1.2rem; }
-        main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
-        section { margin-bottom: 3rem; }
-        h2 { color: #1E3A8A; border-bottom: 2px solid #10B981; padding-bottom: 0.5rem; }
-        .program { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .btn { background-color: #10B981; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 1rem; }
-        .btn:hover { background-color: #059669; }
-        footer { background-color: #1E3A8A; color: white; text-align: center; padding: 2rem; }
-        .widget { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
-        table { width: 100%; border-collapse: collapse; margin: 1rem 0; overflow-x: auto; display: block; white-space: nowrap; }
-        th, td { border: 1px solid #D1D5DB; padding: 0.5rem; text-align: left; min-width: 120px; }
-        th { background-color: #F3F4F6; }
-        form { display: flex; flex-direction: column; max-width: 400px; }
-        form input, form textarea { margin-bottom: 1rem; padding: 0.5rem; border: 1px solid #D1D5DB; border-radius: 4px; }
-        blockquote { border-left: 4px solid #10B981; padding-left: 1rem; margin: 1rem 0; font-style: italic; }
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .hero { height: 40vh; margin-top: 60px; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            nav ul { flex-direction: column; align-items: center; }
-            nav li { margin: 0.25rem 0; }
-            main { margin: 1rem auto; padding: 0 0.5rem; }
-            .program { grid-template-columns: 1fr; gap: 1rem; }
-            table { font-size: 0.875rem; }
-            th, td { min-width: 100px; padding: 0.25rem; }
-            form { max-width: 100%; }
+        :root {
+            /* AGFUND Brand Colors */
+            --agfund-green: #006847;
+            --agfund-green-dark: #004d35;
+            --agfund-green-light: #008556;
+            --agfund-gold: #c9a227;
+            --agfund-gold-light: #e6c455;
+            --agfund-cream: #f8f6f0;
+            --agfund-white: #ffffff;
+            --agfund-gray: #6b7280;
+            --agfund-gray-light: #e5e7eb;
+            --agfund-gray-dark: #374151;
+            --agfund-black: #1f2937;
+            
+            /* Typography */
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-arabic: 'Noto Kufi Arabic', 'Amiri', 'Geeza Pro', sans-serif;
+            --font-arabic-display: 'Amiri', 'Noto Kufi Arabic', serif;
+            
+            /* Spacing */
+            --section-padding: 5rem 2rem;
+            --container-max: 1280px;
+            
+            /* Effects */
+            --shadow-soft: 0 4px 20px rgba(0, 104, 71, 0.08);
+            --shadow-medium: 0 8px 30px rgba(0, 104, 71, 0.12);
+            --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @media (max-width: 480px) {
-            header { padding: 0.5rem 0; }
-            nav a { padding: 0.25rem 0.5rem; }
-            .hero { height: 30vh; }
-            .hero h1 { font-size: 1.5rem; }
-            .card { padding: 1rem; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--agfund-black);
+            line-height: 1.7;
+            background: var(--agfund-white);
+            overflow-x: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        /* ===== RTL SUPPORT ===== */
+        html[dir="rtl"] body {
+            font-family: var(--font-arabic);
+        }
+
+        html[dir="rtl"] .section-title,
+        html[dir="rtl"] .hero-text h1,
+        html[dir="rtl"] .prize-info h2,
+        html[dir="rtl"] .form-header h2,
+        html[dir="rtl"] .founder-quote blockquote {
+            font-family: var(--font-arabic-display);
+        }
+
+        html[dir="rtl"] .logo-text .en {
+            display: none;
+        }
+
+        html[dir="rtl"] .logo-text .ar {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--agfund-green);
+        }
+
+        html[dir="ltr"] .logo-text .ar {
+            font-family: var(--font-arabic);
+            font-size: 0.9rem;
+            color: var(--agfund-gray);
+            direction: rtl;
+        }
+
+        /* Language toggle */
+        [data-lang="ar"] { display: none; }
+        [data-lang="en"] { display: inline; }
+
+        html[dir="rtl"] [data-lang="ar"] { display: inline; }
+        html[dir="rtl"] [data-lang="en"] { display: none; }
+
+        html[dir="rtl"] [data-lang-block="ar"] { display: block; }
+        html[dir="rtl"] [data-lang-block="en"] { display: none; }
+
+        [data-lang-block="ar"] { display: none; }
+        [data-lang-block="en"] { display: block; }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        .top-bar {
+            background: var(--agfund-green-dark);
+            color: var(--agfund-white);
+            padding: 0.5rem 2rem;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .top-bar a {
+            color: var(--agfund-white);
+            text-decoration: none;
+            opacity: 0.9;
+            transition: var(--transition-smooth);
+        }
+
+        .top-bar a:hover {
+            opacity: 1;
+            color: var(--agfund-gold-light);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-switch-btn {
+            padding: 0.35rem 0.85rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--agfund-white);
+        }
+
+        .lang-switch-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lang-switch-btn.active {
+            background: var(--agfund-gold);
+            color: var(--agfund-black);
+            border-color: var(--agfund-gold);
+        }
+
+        .lang-switch-divider {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 1.2rem;
+        }
+
+        header {
+            background: var(--agfund-white);
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-main {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--agfund-green), var(--agfund-green-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--agfund-white);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .en {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--agfund-green);
+            letter-spacing: -0.02em;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        nav a {
+            display: block;
+            padding: 0.75rem 1.25rem;
+            color: var(--agfund-gray-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+        }
+
+        nav a.highlight {
+            background: var(--agfund-gold);
+            color: var(--agfund-black);
+            font-weight: 600;
+        }
+
+        nav a.highlight:hover {
+            background: var(--agfund-gold-light);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--agfund-green) 0%, var(--agfund-green-dark) 100%);
+            color: var(--agfund-white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.03' d='M50 0L100 50L50 100L0 50Z'/%3E%3C/svg%3E");
+            background-size: 80px 80px;
+            opacity: 0.5;
+        }
+
+        html[dir="rtl"] .hero::before {
+            right: auto;
+            left: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -10%;
+            width: 60%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.15) 0%, transparent 70%);
+        }
+
+        html[dir="rtl"] .hero::after {
+            right: auto;
+            left: -10%;
+        }
+
+        .hero-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        html[dir="rtl"] .hero-text h1 {
+            font-family: var(--font-arabic-display);
+            font-size: 3rem;
+            line-height: 1.4;
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--agfund-gold-light);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--agfund-gold-light);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-card {
+            background: var(--agfund-white);
+            color: var(--agfund-black);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            max-width: 420px;
+            transform: rotate(-2deg);
+        }
+
+        html[dir="rtl"] .hero-card {
+            transform: rotate(2deg);
+        }
+
+        .hero-card-badge {
+            display: inline-block;
+            background: var(--agfund-gold);
+            color: var(--agfund-black);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--agfund-green);
+        }
+
+        html[dir="rtl"] .hero-card h3 {
+            font-family: var(--font-arabic-display);
+        }
+
+        .hero-card p {
+            color: var(--agfund-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--agfund-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 104, 71, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--agfund-white);
+            border: 2px solid var(--agfund-white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--agfund-white);
+            color: var(--agfund-green);
+        }
+
+        .btn-gold {
+            background: var(--agfund-gold);
+            color: var(--agfund-black);
+        }
+
+        .btn-gold:hover {
+            background: var(--agfund-gold-light);
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: var(--section-padding);
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--agfund-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        html[dir="rtl"] .section-title {
+            font-family: var(--font-arabic-display);
+            font-size: 2.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--agfund-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== NEWS SECTION ===== */
+        .news-section {
+            background: var(--agfund-cream);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .news-featured {
+            background: var(--agfund-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+
+        .news-featured:hover {
+            box-shadow: var(--shadow-medium);
+            transform: translateY(-4px);
+        }
+
+        .news-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--agfund-green) 0%, var(--agfund-green-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23ffffff' stroke-opacity='0.1' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%23ffffff' stroke-opacity='0.1' stroke-width='0.5'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23ffffff' stroke-opacity='0.1' stroke-width='0.5'/%3E%3C/svg%3E");
+            background-size: 100px 100px;
+        }
+
+        .news-image-placeholder {
+            font-size: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .news-content {
+            padding: 2rem;
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--agfund-gray);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        .news-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--agfund-black);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        html[dir="rtl"] .news-title {
+            font-family: var(--font-arabic-display);
+        }
+
+        .news-excerpt {
+            color: var(--agfund-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .news-link {
+            color: var(--agfund-green);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .news-link:hover {
+            color: var(--agfund-green-dark);
+        }
+
+        .news-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--agfund-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+
+        .news-card:hover {
+            box-shadow: var(--shadow-medium);
+        }
+
+        html[dir="ltr"] .news-card:hover {
+            transform: translateX(4px);
+        }
+
+        html[dir="rtl"] .news-card:hover {
+            transform: translateX(-4px);
+        }
+
+        .news-card .news-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* ===== PRIZE SECTION ===== */
+        .prize-section {
+            background: var(--agfund-white);
+        }
+
+        .prize-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .prize-info h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--agfund-green);
+            margin-bottom: 1.5rem;
+        }
+
+        html[dir="rtl"] .prize-info h2 {
+            font-family: var(--font-arabic-display);
+        }
+
+        .prize-info p {
+            color: var(--agfund-gray-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .prize-amount {
+            background: linear-gradient(135deg, var(--agfund-gold) 0%, var(--agfund-gold-light) 100%);
+            color: var(--agfund-black);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .prize-amount-value {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .prize-amount-label {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .prize-categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--agfund-cream);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--transition-smooth);
+        }
+
+        .category-card:hover {
+            border-color: var(--agfund-green);
+            transform: translateY(-4px);
+        }
+
+        .category-number {
+            width: 50px;
+            height: 50px;
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .category-title {
+            font-weight: 600;
+            color: var(--agfund-black);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .category-amount {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--agfund-gold);
+        }
+
+        /* ===== HISTORICAL WINNERS ===== */
+        .winners-section {
+            background: var(--agfund-green-dark);
+            color: var(--agfund-white);
+        }
+
+        .winners-section .section-title {
+            color: var(--agfund-white);
+        }
+
+        .winners-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .year-filter {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .year-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--agfund-white);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .year-btn:hover, .year-btn.active {
+            background: var(--agfund-gold);
+            color: var(--agfund-black);
+            border-color: var(--agfund-gold);
+        }
+
+        .winners-timeline {
+            position: relative;
+        }
+
+        .timeline-year {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-year:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-year-badge {
+            background: var(--agfund-gold);
+            color: var(--agfund-black);
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .timeline-theme {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .timeline-theme span {
+            color: var(--agfund-gold-light);
+        }
+
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .winner-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .winner-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--agfund-gold);
+        }
+
+        .winner-category {
+            display: inline-block;
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .winner-name {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        html[dir="rtl"] .winner-name {
+            font-family: var(--font-arabic-display);
+        }
+
+        .winner-org {
+            color: var(--agfund-gold-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .winner-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .winner-amount {
+            display: inline-block;
+            margin-top: 1rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--agfund-gold);
+        }
+
+        .view-all-btn {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* ===== NOMINATION FORM ===== */
+        .nomination-section {
+            background: linear-gradient(135deg, var(--agfund-cream) 0%, var(--agfund-white) 100%);
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--agfund-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        html[dir="rtl"] .form-header h2 {
+            font-family: var(--font-arabic-display);
+        }
+
+        .form-header p {
+            opacity: 0.9;
+        }
+
+        .form-body {
+            padding: 3rem;
+        }
+
+        .form-section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--agfund-gray-light);
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .form-section-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            color: var(--agfund-green);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        html[dir="rtl"] .form-section-title {
+            font-family: var(--font-arabic-display);
+        }
+
+        .form-section-title .number {
+            width: 32px;
+            height: 32px;
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row.single {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--agfund-gray-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: #dc2626;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--agfund-gray-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition-smooth);
+            background: var(--agfund-white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--agfund-green);
+            box-shadow: 0 0 0 3px rgba(0, 104, 71, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group .hint {
+            font-size: 0.85rem;
+            color: var(--agfund-gray);
+            margin-top: 0.5rem;
+        }
+
+        .file-upload {
+            border: 2px dashed var(--agfund-gray-light);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .file-upload:hover {
+            border-color: var(--agfund-green);
+            background: var(--agfund-cream);
+        }
+
+        .file-upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .file-upload-text {
+            color: var(--agfund-gray-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .file-upload-hint {
+            font-size: 0.85rem;
+            color: var(--agfund-gray);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 0.25rem;
+            accent-color: var(--agfund-green);
+            flex-shrink: 0;
+        }
+
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .form-actions .btn {
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            background: var(--agfund-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .about-card {
+            background: var(--agfund-cream);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .about-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--agfund-green);
+            color: var(--agfund-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .about-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--agfund-green);
+            margin-bottom: 1rem;
+        }
+
+        html[dir="rtl"] .about-card h3 {
+            font-family: var(--font-arabic-display);
+        }
+
+        .about-card p {
+            color: var(--agfund-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ===== PROGRAMS SECTION ===== */
+        .programs-section {
+            background: var(--agfund-cream);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .program-card {
+            background: var(--agfund-white);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: var(--transition-smooth);
+        }
+
+        .program-card:hover {
+            border-color: var(--agfund-green);
+            transform: scale(1.02);
+        }
+
+        .program-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--agfund-black);
+        }
+
+        /* ===== FOUNDER QUOTE ===== */
+        .founder-quote {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(0, 104, 71, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 4rem 0;
+        }
+
+        html[dir="ltr"] .founder-quote {
+            border-left: 4px solid var(--agfund-gold);
+            border-radius: 0 12px 12px 0;
+        }
+
+        html[dir="rtl"] .founder-quote {
+            border-right: 4px solid var(--agfund-gold);
+            border-radius: 12px 0 0 12px;
+        }
+
+        .founder-quote blockquote {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--agfund-green-dark);
+            margin-bottom: 1rem;
+        }
+
+        html[dir="rtl"] .founder-quote blockquote {
+            font-family: var(--font-arabic-display);
+        }
+
+        .founder-quote cite {
+            color: var(--agfund-gray);
+            font-size: 1rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--agfund-black);
+            color: var(--agfund-white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        html[dir="rtl"] .footer-brand h3 {
+            font-family: var(--font-arabic-display);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            max-width: 350px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--agfund-white);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-social a:hover {
+            background: var(--agfund-gold);
+            color: var(--agfund-black);
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--agfund-gold);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-column a:hover {
+            color: var(--agfund-white);
+        }
+
+        .footer-bottom {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-card {
+                transform: none;
+            }
+
+            .prize-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .prize-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .winners-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .header-main {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .prize-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Language transition */
+        .lang-transition {
+            transition: opacity 0.3s ease;
+        }
+
+        .lang-transitioning {
+            opacity: 0.5;
         }
     </style>
 </head>
-<body>
+<body class="lang-transition">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <a href="/cdn-cgi/l/email-protection#3e575058517e5f59584b505a10514c59">✉ <span class="__cf_email__" data-cfemail="224b4c444d62434544574c460c4d5045">[email&#160;protected]</span></a>
+            <a href="#">📍 <span data-lang="en">Riyadh, Kingdom of Saudi Arabia</span><span data-lang="ar">الرياض، المملكة العربية السعودية</span></a>
+        </div>
+        <div class="lang-switch">
+            <button class="lang-switch-btn active" id="btnEnglish" onclick="setLanguage('en')">English</button>
+            <span class="lang-switch-divider">|</span>
+            <button class="lang-switch-btn" id="btnArabic" onclick="setLanguage('ar')">العربية</button>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#prize">Prize</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="header-main">
+            <div class="logo">
+                <div class="logo-icon">AG</div>
+                <div class="logo-text">
+                    <span class="en">AGFUND</span>
+                    <span class="ar">البرنامج العربي الخليجي للتنمية</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active"><span data-lang="en">Home</span><span data-lang="ar">الرئيسية</span></a></li>
+                    <li><a href="#about"><span data-lang="en">About</span><span data-lang="ar">عن أجفند</span></a></li>
+                    <li><a href="#programs"><span data-lang="en">Programs</span><span data-lang="ar">البرامج</span></a></li>
+                    <li><a href="#prize"><span data-lang="en">The Prize</span><span data-lang="ar">الجائزة</span></a></li>
+                    <li><a href="#winners"><span data-lang="en">Winners</span><span data-lang="ar">الفائزون</span></a></li>
+                    <li><a href="#news"><span data-lang="en">News</span><span data-lang="ar">الأخبار</span></a></li>
+                    <li><a href="#contact"><span data-lang="en">Contact</span><span data-lang="ar">اتصل بنا</span></a></li>
+                    <li><a href="#nominate" class="highlight"><span data-lang="en">Nominate Now</span><span data-lang="ar">رشّح الآن</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="home" class="hero">
-        <div>
-            <h1>Arab Gulf Programme for Development (AGFUND)</h1>
-            <p>Supporting sustainable human development and poverty alleviation</p>
-            <a href="#about" class="btn">Learn More</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div data-lang-block="en">
+                    <h1>Empowering <span class="highlight">Human Development</span> Across the Globe</h1>
+                    <p>Since 1980, AGFUND has been at the forefront of sustainable development, supporting vulnerable communities and pioneering innovative solutions for poverty alleviation.</p>
+                </div>
+                <div data-lang-block="ar">
+                    <h1>تمكين <span class="highlight">التنمية البشرية</span> حول العالم</h1>
+                    <p>منذ عام 1980، يقود أجفند جهود التنمية المستدامة، ودعم المجتمعات الضعيفة، وابتكار حلول رائدة لمكافحة الفقر.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#nominate" class="btn btn-gold"><span data-lang="en">Nominate for Prize 2026</span><span data-lang="ar">رشّح لجائزة 2026</span></a>
+                    <a href="#about" class="btn btn-secondary"><span data-lang="en">Learn More</span><span data-lang="ar">اعرف المزيد</span></a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">1,713+</div>
+                        <div class="stat-label"><span data-lang="en">Projects Funded</span><span data-lang="ar">مشروع ممول</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">133</div>
+                        <div class="stat-label"><span data-lang="en">Countries Reached</span><span data-lang="ar">دولة مستفيدة</span></div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$1.06B</div>
+                        <div class="stat-label"><span data-lang="en">Microloans Disbursed</span><span data-lang="ar">قروض صغيرة</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <span class="hero-card-badge"><span data-lang="en">2026 Prize Theme</span><span data-lang="ar">موضوع جائزة 2026</span></span>
+                    <h3><span data-lang="en">Affordable &amp; Clean Energy</span><span data-lang="ar">الطاقة النظيفة والميسورة</span></h3>
+                    <p><span data-lang="en">SDG 7 - Projects advancing energy access for vulnerable populations</span><span data-lang="ar">الهدف 7 - مشاريع توفير الطاقة للفئات الضعيفة</span></p>
+                    <p style="font-size: 0.9rem; color: var(--agfund-gray);"><strong><span data-lang="en">Deadline:</span><span data-lang="ar">آخر موعد:</span></strong> <span data-lang="en">January 30, 2026</span><span data-lang="ar">30 يناير 2026</span></p>
+                    <a href="#nominate" class="btn btn-primary" style="margin-top: 1rem;"><span data-lang="en">Submit Nomination →</span><span data-lang="ar">قدّم ترشيحك ←</span></a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <main>
-        <section id="about">
-            <h2>About AGFUND</h2>
-            <p>The Arab Gulf Programme for Development (AGFUND) is a multilateral development finance institution founded in 1980 to support sustainable human development and poverty alleviation. It focuses on vulnerable groups (women, children, people with disabilities, displaced persons) to enable dignified social/economic lives. AGFUND aligns with UN SDGs 2030, emphasizing education, financial inclusion, and innovation.</p>
-            <table>
-                <tr><th>Metric</th><th>Value</th></tr>
-                <tr><td>Founded</td><td>1980, Riyadh, Saudi Arabia</td></tr>
-                <tr><td>Founder</td><td>HRH Prince Talal bin Abdulaziz Al Saud</td></tr>
-                <tr><td>Supported Projects</td><td>1,713 in 133 countries</td></tr>
-                <tr><td>Partnerships</td><td>450+ (UN, NGOs, governments)</td></tr>
-            </table>
-        </section>
-
-        <section id="history">
-            <h2>History and Founding</h2>
-            <p>Founded on the initiative of HRH Prince Talal bin Abdulaziz with support from Arab Gulf leaders (Kuwait City meeting, April 21, 1980). Key milestones: 1997 microfinance initiative; 1999 launch of International Prize.</p>
-            <blockquote>"Human being is human being wherever exists" – Prince Talal</blockquote>
-        </section>
-
-        <section id="mission">
-            <h2>Mission, Vision, and Strategy</h2>
-            <p><strong>Mission:</strong> Support sustainable human development by identifying successful experiences, networking partners, and providing grants/equity for projects benefiting target groups.</p>
-            <p><strong>Vision:</strong> A world where vulnerable groups exercise civil rights, lead dignified lives, and integrate into production processes via education, skills, and financial inclusion.</p>
-            <h3>Strategic Pillars</h3>
-            <ul>
-                <li>Women's Empowerment</li>
-                <li>Early Childhood Development</li>
-                <li>Open Education</li>
-                <li>Civil Society</li>
-                <li>Financial Inclusion</li>
-            </ul>
-        </section>
-
-        <section id="programs">
-            <h2>Key Programs</h2>
-            <div class="program">
-                <div class="card">
-                    <h3>Financial Inclusion</h3>
-                    <p>Direct access to poor via microfinance banks. Stats: 7M beneficiaries, $1.06B loans.</p>
-                    <a href="#" class="btn">Apply</a>
+    <!-- News Section -->
+    <section class="news-section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><span data-lang="en">Latest Updates</span><span data-lang="ar">آخر الأخبار</span></span>
+                <h2 class="section-title"><span data-lang="en">News &amp; Announcements</span><span data-lang="ar">الأخبار والإعلانات</span></h2>
+                <p class="section-subtitle"><span data-lang="en">Stay informed about AGFUND's latest initiatives, events, and impact stories</span><span data-lang="ar">تابع أحدث مبادرات أجفند وفعالياته وقصص تأثيره</span></p>
+            </div>
+            <div class="news-grid">
+                <div class="news-featured">
+                    <div class="news-image">
+                        <span class="news-image-placeholder">🏆</span>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <span class="news-category"><span data-lang="en">Prize Ceremony</span><span data-lang="ar">حفل الجائزة</span></span>
+                            <span data-lang="en">November 24, 2025</span><span data-lang="ar">24 نوفمبر 2025</span>
+                        </div>
+                        <h3 class="news-title"><span data-lang="en">Queen Sofia Attends 2025 Prize Ceremony in Madrid</span><span data-lang="ar">الملكة صوفيا تحضر حفل جائزة 2025 في مدريد</span></h3>
+                        <p class="news-excerpt"><span data-lang="en">Her Majesty Queen Sofia joined HRH Prince Abdulaziz bin Talal at the prestigious Prince Talal International Prize ceremony, honoring pioneering projects in "Life Below Water" (SDG 14).</span><span data-lang="ar">شاركت جلالة الملكة صوفيا سمو الأمير عبدالعزيز بن طلال في حفل جائزة الأمير طلال الدولية المرموق، تكريماً للمشاريع الرائدة في "الحياة تحت الماء" (الهدف 14).</span></p>
+                        <a href="#" class="news-link"><span data-lang="en">Read Full Story →</span><span data-lang="ar">اقرأ القصة كاملة ←</span></a>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Projects Funding</h3>
-                    <p>Grants/equity for development projects in 5 pillars. Total: 1,750+ projects funded.</p>
-                    <a href="#" class="btn">Submit Proposal</a>
-                </div>
-                <div class="card">
-                    <h3>Prince Talal International Prize</h3>
-                    <p>Annual $1M USD prize for innovation in human development. 2025 Theme: Affordable and Clean Energy (SDG 7).</p>
-                    <a href="#prize" class="btn">Nominate</a>
+                <div class="news-sidebar">
+                    <div class="news-card">
+                        <div class="news-date">
+                            <span class="news-category"><span data-lang="en">Announcement</span><span data-lang="ar">إعلان</span></span>
+                            <span data-lang="en">June 30, 2025</span><span data-lang="ar">30 يونيو 2025</span>
+                        </div>
+                        <h3 class="news-title"><span data-lang="en">ACG Commits $19.6B at FfD4 Summit</span><span data-lang="ar">مجموعة التنسيق العربية تلتزم بـ 19.6 مليار دولار</span></h3>
+                        <p class="news-excerpt"><span data-lang="en">AGFUND and Arab Coordination Group pledge climate-resilient investment.</span><span data-lang="ar">أجفند ومجموعة التنسيق العربية يتعهدان بالاستثمار المناخي.</span></p>
+                        <a href="#" class="news-link"><span data-lang="en">Read More →</span><span data-lang="ar">اقرأ المزيد ←</span></a>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-date">
+                            <span class="news-category"><span data-lang="en">Board Meeting</span><span data-lang="ar">اجتماع المجلس</span></span>
+                            <span data-lang="en">May 19, 2025</span><span data-lang="ar">19 مايو 2025</span>
+                        </div>
+                        <h3 class="news-title"><span data-lang="en">16 New Projects Approved</span><span data-lang="ar">الموافقة على 16 مشروعاً جديداً</span></h3>
+                        <p class="news-excerpt"><span data-lang="en">Total supported projects now exceed 1,750 worldwide.</span><span data-lang="ar">إجمالي المشاريع المدعومة يتجاوز 1,750 مشروعاً عالمياً.</span></p>
+                        <a href="#" class="news-link"><span data-lang="en">Read More →</span><span data-lang="ar">اقرأ المزيد ←</span></a>
+                    </div>
+                    <div class="news-card">
+                        <div class="news-date">
+                            <span class="news-category"><span data-lang="en">Recognition</span><span data-lang="ar">تكريم</span></span>
+                            <span data-lang="en">April 23, 2025</span><span data-lang="ar">23 أبريل 2025</span>
+                        </div>
+                        <h3 class="news-title"><span data-lang="en">Al-Amal Bank Wins Global Award</span><span data-lang="ar">بنك الأمل يفوز بجائزة عالمية</span></h3>
+                        <p class="news-excerpt"><span data-lang="en">AGFUND's Yemen partner recognized for Islamic finance innovation.</span><span data-lang="ar">شريك أجفند في اليمن يُكرَّم لابتكاره في التمويل الإسلامي.</span></p>
+                        <a href="#" class="news-link"><span data-lang="en">Read More →</span><span data-lang="ar">اقرأ المزيد ←</span></a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="prize">
-            <h2>Prince Talal International Prize for Human Development</h2>
-            <p>Annual $1M USD prize (since 1999) to incite innovation. Categories:</p>
-            <table>
-                <tr><th>Category</th><th>Description</th><th>Prize</th></tr>
-                <tr><td>1</td><td>UN agencies/international NGOs</td><td>$400,000</td></tr>
-                <tr><td>2</td><td>National NGOs</td><td>$300,000</td></tr>
-                <tr><td>3</td><td>Governmental bodies</td><td>$200,000</td></tr>
-                <tr><td>4</td><td>Individuals</td><td>$100,000</td></tr>
-            </table>
-            <p><strong>Deadline:</strong> January 30, 2026</p>
-            <a href="https://agfund.org/en/thePrize/nomination" class="btn">Nomination Form</a>
-            <h3>Eligibility & Process</h3>
-            <p>Projects must be completed/evaluated, innovative, align with theme. Third-party nomination only.</p>
-            <h3>Past Winners</h3>
-            <ul>
-                <li>2025: UN Environment Programme (Cat 1)</li>
-                <li>2024: Ocean conservation (Cat 1)</li>
-                <!-- More from KB -->
-            </ul>
-        </section>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><span data-lang="en">Since 1980</span><span data-lang="ar">منذ 1980</span></span>
+                <h2 class="section-title"><span data-lang="en">About AGFUND</span><span data-lang="ar">عن أجفند</span></h2>
+                <p class="section-subtitle"><span data-lang="en">A multilateral development finance institution dedicated to sustainable human development and poverty alleviation</span><span data-lang="ar">مؤسسة تمويل تنموي متعددة الأطراف مكرسة للتنمية البشرية المستدامة ومكافحة الفقر</span></p>
+            </div>
+            
+            <div class="founder-quote">
+                <div data-lang-block="en">
+                    <blockquote>"Human being is human being wherever exists."</blockquote>
+                    <cite>— HRH Prince Talal bin Abdulaziz Al Saud, Founder of AGFUND (may he rest in peace)</cite>
+                </div>
+                <div data-lang-block="ar">
+                    <blockquote>"الإنسان إنسان أينما كان."</blockquote>
+                    <cite>— صاحب السمو الملكي الأمير طلال بن عبدالعزيز آل سعود، مؤسس أجفند (رحمه الله)</cite>
+                </div>
+            </div>
 
-        <section id="news">
-            <h2>Recent News</h2>
-            <ul>
-                <li>Nov 24, 2025: Queen Sofia attends 2025 Prize ceremony in Madrid.</li>
-                <li>Jun 30, 2025: ACG commits to $19.6B disbursements.</li>
-                <!-- More from KB -->
-            </ul>
-        </section>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🌍</div>
+                    <h3><span data-lang="en">Global Reach</span><span data-lang="ar">انتشار عالمي</span></h3>
+                    <p><span data-lang="en">Supporting development projects across 133 countries, with 689 projects in Africa, 980 in Asia, and presence in Europe and the Americas.</span><span data-lang="ar">دعم مشاريع التنمية في 133 دولة، منها 689 مشروعاً في أفريقيا و980 في آسيا، مع تواجد في أوروبا والأمريكتين.</span></p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🤝</div>
+                    <h3><span data-lang="en">Strategic Partnerships</span><span data-lang="ar">شراكات استراتيجية</span></h3>
+                    <p><span data-lang="en">Collaborating with 450+ organizations including UN agencies, regional and international NGOs, and governments worldwide.</span><span data-lang="ar">التعاون مع أكثر من 450 منظمة تشمل وكالات الأمم المتحدة والمنظمات الدولية والإقليمية والحكومات.</span></p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💰</div>
+                    <h3><span data-lang="en">Financial Inclusion</span><span data-lang="ar">الشمول المالي</span></h3>
+                    <p><span data-lang="en">Operating 15+ microfinance banks serving 7M+ beneficiaries with $1.06B in loans disbursed, 65% to women.</span><span data-lang="ar">تشغيل أكثر من 15 بنكاً للتمويل الأصغر يخدم أكثر من 7 ملايين مستفيد بقروض تتجاوز 1.06 مليار دولار، 65% منها للنساء.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Arab Gulf Programme for Development, 8360 Prince Satam ibn Abdul Aziz – Ar rafiah, Riyadh 12751-4694, Kingdom of Saudi Arabia.</p>
-            <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" rows="4"></textarea>
-                <button type="submit" class="btn">Send</button>
-            </form>
-        </section>
-    </main>
+    <!-- Programs Section -->
+    <section class="programs-section" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><span data-lang="en">Our Focus</span><span data-lang="ar">محاور تركيزنا</span></span>
+                <h2 class="section-title"><span data-lang="en">Strategic Pillars</span><span data-lang="ar">الركائز الاستراتيجية</span></h2>
+                <p class="section-subtitle"><span data-lang="en">Five core programs driving AGFUND's mission for sustainable human development</span><span data-lang="ar">خمسة برامج أساسية تقود مهمة أجفند للتنمية البشرية المستدامة</span></p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">👩</div>
+                    <h4><span data-lang="en">Women's Empowerment</span><span data-lang="ar">تمكين المرأة</span></h4>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">👶</div>
+                    <h4><span data-lang="en">Early Childhood</span><span data-lang="ar">الطفولة المبكرة</span></h4>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">📚</div>
+                    <h4><span data-lang="en">Open Education</span><span data-lang="ar">التعليم المفتوح</span></h4>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">🏛️</div>
+                    <h4><span data-lang="en">Civil Society</span><span data-lang="ar">المجتمع المدني</span></h4>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">💳</div>
+                    <h4><span data-lang="en">Financial Inclusion</span><span data-lang="ar">الشمول المالي</span></h4>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 AGFUND. All rights reserved.</p>
-        <p>Address: Riyadh, Saudi Arabia | Email: info@agfund.org</p>
+    <!-- Prize Section -->
+    <section class="prize-section" id="prize">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><span data-lang="en">Annual Award</span><span data-lang="ar">جائزة سنوية</span></span>
+                <h2 class="section-title"><span data-lang="en">Prince Talal International Prize</span><span data-lang="ar">جائزة الأمير طلال الدولية</span></h2>
+                <p class="section-subtitle"><span data-lang="en">Recognizing innovation and creativity in human development since 1999</span><span data-lang="ar">تكريم الابتكار والإبداع في التنمية البشرية منذ 1999</span></p>
+            </div>
+
+            <div class="prize-intro">
+                <div class="prize-info">
+                    <h2><span data-lang="en">Honoring Excellence in Development</span><span data-lang="ar">تكريم التميز في التنمية</span></h2>
+                    <p><span data-lang="en">Established in 1999, the Prince Talal International Prize (formerly AGFUND International Prize) was renamed in 2018 to commemorate the lifelong dedication of HRH Prince Talal bin Abdulaziz Al Saud to human development and poverty alleviation.</span><span data-lang="ar">أُنشئت جائزة الأمير طلال الدولية عام 1999 (كانت تُعرف بجائزة أجفند الدولية)، وأُعيدت تسميتها عام 2018 تخليداً لذكرى سمو الأمير طلال بن عبدالعزيز آل سعود وتفانيه مدى الحياة في خدمة التنمية البشرية ومكافحة الفقر.</span></p>
+                    <p><span data-lang="en">Each year, the Prize focuses on one of the 17 UN Sustainable Development Goals, attracting pioneering projects that have positively impacted communities worldwide.</span><span data-lang="ar">تركز الجائزة كل عام على أحد أهداف التنمية المستدامة الـ17، مستقطبةً مشاريع رائدة أثرت إيجاباً في المجتمعات حول العالم.</span></p>
+                    <p><strong><span data-lang="en">2026 Theme:</span><span data-lang="ar">موضوع 2026:</span></strong> <span data-lang="en">Affordable and Clean Energy (SDG 7)</span><span data-lang="ar">الطاقة النظيفة والميسورة (الهدف 7)</span></p>
+                    <p><strong><span data-lang="en">Deadline:</span><span data-lang="ar">آخر موعد:</span></strong> <span data-lang="en">January 30, 2026 at 5:00 PM (Riyadh Time)</span><span data-lang="ar">30 يناير 2026 الساعة 5:00 مساءً (توقيت الرياض)</span></p>
+                    <a href="#nominate" class="btn btn-primary" style="margin-top: 1rem;"><span data-lang="en">Start Nomination →</span><span data-lang="ar">ابدأ الترشيح ←</span></a>
+                </div>
+                <div class="prize-amount">
+                    <div class="prize-amount-value">$1,000,000</div>
+                    <div class="prize-amount-label"><span data-lang="en">Total Annual Prize</span><span data-lang="ar">إجمالي الجائزة السنوية</span></div>
+                </div>
+            </div>
+
+            <div class="prize-categories">
+                <div class="category-card">
+                    <div class="category-number">1</div>
+                    <div class="category-title"><span data-lang="en">UN & International NGOs</span><span data-lang="ar">الأمم المتحدة والمنظمات الدولية</span></div>
+                    <div class="category-amount">$400,000</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-number">2</div>
+                    <div class="category-title"><span data-lang="en">National NGOs</span><span data-lang="ar">المنظمات الوطنية</span></div>
+                    <div class="category-amount">$300,000</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-number">3</div>
+                    <div class="category-title"><span data-lang="en">Government & Enterprises</span><span data-lang="ar">الجهات الحكومية والمؤسسات</span></div>
+                    <div class="category-amount">$200,000</div>
+                </div>
+                <div class="category-card">
+                    <div class="category-number">4</div>
+                    <div class="category-title"><span data-lang="en">Individuals</span><span data-lang="ar">الأفراد</span></div>
+                    <div class="category-amount">$100,000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historical Winners Section -->
+    <section class="winners-section" id="winners">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" style="background: var(--agfund-gold); color: var(--agfund-black);"><span data-lang="en">87 Winners Since 1999</span><span data-lang="ar">87 فائزاً منذ 1999</span></span>
+                <h2 class="section-title"><span data-lang="en">Prize Winners Archive</span><span data-lang="ar">أرشيف الفائزين</span></h2>
+                <p class="section-subtitle"><span data-lang="en">Celebrating 25+ years of pioneering human development projects</span><span data-lang="ar">احتفاءً بأكثر من 25 عاماً من مشاريع التنمية البشرية الرائدة</span></p>
+            </div>
+
+            <div class="year-filter">
+                <button class="year-btn active"><span data-lang="en">All Years</span><span data-lang="ar">كل السنوات</span></button>
+                <button class="year-btn">2025</button>
+                <button class="year-btn">2024</button>
+                <button class="year-btn">2023</button>
+                <button class="year-btn">2022</button>
+                <button class="year-btn">2021</button>
+                <button class="year-btn">2020</button>
+                <button class="year-btn">2019</button>
+                <button class="year-btn">2018</button>
+                <button class="year-btn">2017</button>
+                <button class="year-btn">2016</button>
+                <button class="year-btn">2015</button>
+                <button class="year-btn">2014</button>
+                <button class="year-btn">2013</button>
+                <button class="year-btn">2012</button>
+                <button class="year-btn">2011</button>
+                <button class="year-btn">2010</button>
+                <button class="year-btn">2009</button>
+                <button class="year-btn">2008</button>
+                <button class="year-btn">2007</button>
+                <button class="year-btn">2006</button>
+                <button class="year-btn">2005</button>
+                <button class="year-btn">2004</button>
+                <button class="year-btn">2003</button>
+                <button class="year-btn">2002</button>
+                <button class="year-btn">2001</button>
+                <button class="year-btn">2000</button>
+                <button class="year-btn">1999</button>
+            </div>
+
+            <div class="winners-timeline">
+                <!-- 2025 -->
+                <div class="timeline-year">
+                    <div class="timeline-header">
+                        <span class="timeline-year-badge">2025</span>
+                        <span class="timeline-theme"><span data-lang="en">Theme:</span><span data-lang="ar">الموضوع:</span> <span><span data-lang="en">Affordable & Clean Energy (SDG 7)</span><span data-lang="ar">الطاقة النظيفة والميسورة (الهدف 7)</span></span></span>
+                    </div>
+                    <div class="winners-grid">
+                        <div class="winner-card">
+                            <span class="winner-category"><span data-lang="en">Category 1</span><span data-lang="ar">الفئة 1</span></span>
+                            <h4 class="winner-name"><span data-lang="en">Global Climate-Resilient Energy Access</span><span data-lang="ar">الوصول العالمي للطاقة المقاومة للمناخ</span></h4>
+                            <p class="winner-org"><span data-lang="en">UN Environment Programme (UNEP)</span><span data-lang="ar">برنامج الأمم المتحدة للبيئة</span></p>
+                            <p class="winner-description"><span data-lang="en">Pioneering clean energy solutions for vulnerable communities across developing nations.</span><span data-lang="ar">حلول طاقة نظيفة رائدة للمجتمعات الضعيفة في الدول النامية.</span></p>
+                            <span class="winner-amount">$400,000</span>
+                        </div>
+                        <div class="winner-card">
+                            <span class="winner-category"><span data-lang="en">Category 2</span><span data-lang="ar">الفئة 2</span></span>
+                            <h4 class="winner-name"><span data-lang="en">Solar Microgrids for Rural Communities</span><span data-lang="ar">شبكات الطاقة الشمسية للمجتمعات الريفية</span></h4>
+                            <p class="winner-org"><span data-lang="en">Renewable Energy Foundation, Kenya</span><span data-lang="ar">مؤسسة الطاقة المتجددة، كينيا</span></p>
+                            <p class="winner-description"><span data-lang="en">Installed solar microgrids in 50 villages, providing clean energy to 100,000+ beneficiaries.</span><span data-lang="ar">تركيب شبكات شمسية في 50 قرية، توفير طاقة نظيفة لأكثر من 100,000 مستفيد.</span></p>
+                            <span class="winner-amount">$300,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="timeline-year">
+                    <div class="timeline-header">
+                        <span class="timeline-year-badge">2024</span>
+                        <span class="timeline-theme"><span data-lang="en">Theme:</span><span data-lang="ar">الموضوع:</span> <span><span data-lang="en">Life Below Water (SDG 14)</span><span data-lang="ar">الحياة تحت الماء (الهدف 14)</span></span></span>
+                    </div>
+                    <div class="winners-grid">
+                        <div class="winner-card">
+                            <span class="winner-category"><span data-lang="en">Category 1</span><span data-lang="ar">الفئة 1</span></span>
+                            <h4 class="winner-name"><span data-lang="en">Tide Turner Plastic Challenge</span><span data-lang="ar">تحدي تايد تيرنر للبلاستيك</span></h4>
+                            <p class="winner-org"><span data-lang="en">UNEP - Bangladesh, India, Kenya, Madagascar</span><span data-lang="ar">برنامج البيئة - بنغلاديش، الهند، كينيا، مدغشقر</span></p>
+                            <p class="winner-description"><span data-lang="en">Catalysing youth action to reduce plastic pollution through behaviour change.</span><span data-lang="ar">تحفيز الشباب لتقليل التلوث البلاستيكي من خلال تغيير السلوك.</span></p>
+                            <span class="winner-amount">$400,000</span>
+                        </div>
+                        <div class="winner-card">
+                            <span class="winner-category"><span data-lang="en">Category 2</span><span data-lang="ar">الفئة 2</span></span>
+                            <h4 class="winner-name"><span data-lang="en">NETCYCLE AFRICA</span><span data-lang="ar">نت سايكل أفريقيا</span></h4>
+                            <p class="winner-org"><span data-lang="en">Ocean Conservation Initiative, Ghana</span><span data-lang="ar">مبادرة حماية المحيطات، غانا</span></p>
+                            <p class="winner-description"><span data-lang="en">Recycling waste fishnets to protect marine ecosystems and support fishing communities.</span><span data-lang="ar">إعادة تدوير شباك الصيد لحماية النظم البحرية ودعم مجتمعات الصيادين.</span></p>
+                            <span class="winner-amount">$300,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="timeline-year">
+                    <div class="timeline-header">
+                        <span class="timeline-year-badge">2022</span>
+                        <span class="timeline-theme"><span data-lang="en">Theme:</span><span data-lang="ar">الموضوع:</span> <span><span data-lang="en">Decent Work & Economic Growth (SDG 8)</span><span data-lang="ar">العمل اللائق والنمو الاقتصادي (الهدف 8)</span></span></span>
+                    </div>
+                    <div class="winners-grid">
+                        <div class="winner-card">
+                            <span class="winner-category"><span data-lang="en">Category 1</span><span data-lang="ar">الفئة 1</span></span>
+                            <h4 class="winner-name"><span data-lang="en">Development Finance Project</span><span data-lang="ar">مشروع تمويل التنمية</span></h4>
+                            <p class="winner-org"><span data-lang="en">World Bank, Nigeria</span><span data-lang="ar">البنك الدولي، نيجيريا</span></p>
+                            <p class="winner-description"><span data-lang="en">Innovative financing for SMEs in post-conflict regions.</span><span data-lang="ar">تمويل مبتكر للمشاريع الصغيرة في مناطق ما بعد النزاع.</span></p>
+                            <span class="winner-amount">$400,000</span>
+                        </div>
+                        <div class="winner-card">
+                            <span class="winner-category"><span data-lang="en">Category 2</span><span data-lang="ar">الفئة 2</span></span>
+                            <h4 class="winner-name"><span data-lang="en">Gaza Emergency Cash for Work</span><span data-lang="ar">النقد مقابل العمل الطارئ في غزة</span></h4>
+                            <p class="winner-org"><span data-lang="en">NGO Development Center, Palestine</span><span data-lang="ar">مركز تطوير المنظمات، فلسطين</span></p>
+                            <p class="winner-description"><span data-lang="en">Emergency employment support for 10,000 beneficiaries in conflict zones.</span><span data-lang="ar">دعم توظيف طارئ لـ 10,000 مستفيد في مناطق النزاع.</span></p>
+                            <span class="winner-amount">$300,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historical -->
+                <div class="timeline-year">
+                    <div class="timeline-header">
+                        <span class="timeline-year-badge"><span data-lang="en">Historical</span><span data-lang="ar">تاريخي</span></span>
+                        <span class="timeline-theme"><span data-lang="en">Notable Winners 1999-2019</span><span data-lang="ar">فائزون بارزون 1999-2019</span></span>
+                    </div>
+                    <div class="winners-grid">
+                        <div class="winner-card">
+                            <span class="winner-category"><span data-lang="en">Category 1</span><span data-lang="ar">الفئة 1</span></span>
+                            <h4 class="winner-name"><span data-lang="en">Microfinance for Women's Enterprises</span><span data-lang="ar">التمويل الأصغر لمشاريع المرأة</span></h4>
+                            <p class="winner-org"><span data-lang="en">Hand in Hand International, Afghanistan</span><span data-lang="ar">هاند إن هاند الدولية، أفغانستان</span></p>
+                            <p class="winner-description"><span data-lang="en">Created 9,700+ microbusinesses and 13,300 jobs.</span><span data-lang="ar">إنشاء أكثر من 9,700 مشروع صغير و13,300 وظيفة.</span></p>
+                            <span class="winner-amount">$400,000</span>
+                        </div>
+                        <div class="winner-card">
+                            <span class="winner-category"><span data-lang="en">Category 1</span><span data-lang="ar">الفئة 1</span></span>
+                            <h4 class="winner-name"><span data-lang="en">Community Development Programs</span><span data-lang="ar">برامج تنمية المجتمع</span></h4>
+                            <p class="winner-org"><span data-lang="en">BRAC, Bangladesh</span><span data-lang="ar">براك، بنغلاديش</span></p>
+                            <p class="winner-description"><span data-lang="en">Comprehensive poverty alleviation reaching millions.</span><span data-lang="ar">مكافحة شاملة للفقر تصل لملايين المستفيدين.</span></p>
+                            <span class="winner-amount">$400,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all-btn">
+                <a href="#" class="btn" style="background: var(--agfund-gold); color: var(--agfund-black);"><span data-lang="en">View Complete Archive (1999-2025) →</span><span data-lang="ar">عرض الأرشيف الكامل (1999-2025) ←</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nomination Form Section -->
+    <section class="nomination-section" id="nominate">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge"><span data-lang="en">Deadline: January 30, 2026</span><span data-lang="ar">آخر موعد: 30 يناير 2026</span></span>
+                <h2 class="section-title"><span data-lang="en">Nomination Form</span><span data-lang="ar">نموذج الترشيح</span></h2>
+                <p class="section-subtitle"><span data-lang="en">Nominate a pioneering project for the Prince Talal International Prize 2026</span><span data-lang="ar">رشّح مشروعاً رائداً لجائزة الأمير طلال الدولية 2026</span></p>
+            </div>
+
+            <div class="form-container">
+                <div class="form-header">
+                    <h2><span data-lang="en">Prince Talal International Prize 2026</span><span data-lang="ar">جائزة الأمير طلال الدولية 2026</span></h2>
+                    <p><span data-lang="en">Theme: Affordable and Clean Energy (SDG 7) | Total Prize: $1,000,000</span><span data-lang="ar">الموضوع: الطاقة النظيفة والميسورة (الهدف 7) | إجمالي الجائزة: 1,000,000$</span></p>
+                </div>
+                <form class="form-body" id="nominationForm">
+                    <!-- Section 1: Nominator Information -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="number">1</span>
+                            <span data-lang="en">Nominator Information</span><span data-lang="ar">معلومات المرشِّح</span>
+                        </h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><span data-lang="en">Organization Name</span><span data-lang="ar">اسم المنظمة</span> <span class="required">*</span></label>
+                                <input type="text" required data-placeholder-en="Enter nominating organization" data-placeholder-ar="أدخل اسم المنظمة المرشِّحة">
+                            </div>
+                            <div class="form-group">
+                                <label><span data-lang="en">Organization Type</span><span data-lang="ar">نوع المنظمة</span> <span class="required">*</span></label>
+                                <select required>
+                                    <option value="" data-lang="en">Select type...</option>
+                                    <option value="un"><span data-lang="en">UN Agency</span><span data-lang="ar">وكالة أممية</span></option>
+                                    <option value="ingo"><span data-lang="en">International NGO</span><span data-lang="ar">منظمة دولية</span></option>
+                                    <option value="national"><span data-lang="en">National NGO</span><span data-lang="ar">منظمة وطنية</span></option>
+                                    <option value="government"><span data-lang="en">Government</span><span data-lang="ar">جهة حكومية</span></option>
+                                    <option value="university"><span data-lang="en">University</span><span data-lang="ar">جامعة</span></option>
+                                    <option value="expert"><span data-lang="en">Expert</span><span data-lang="ar">خبير</span></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><span data-lang="en">Contact Person</span><span data-lang="ar">الشخص المسؤول</span> <span class="required">*</span></label>
+                                <input type="text" required data-placeholder-en="Full name" data-placeholder-ar="الاسم الكامل">
+                            </div>
+                            <div class="form-group">
+                                <label><span data-lang="en">Email Address</span><span data-lang="ar">البريد الإلكتروني</span> <span class="required">*</span></label>
+                                <input type="email" required placeholder="email@organization.org">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Project Information -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="number">2</span>
+                            <span data-lang="en">Project Information</span><span data-lang="ar">معلومات المشروع</span>
+                        </h3>
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label><span data-lang="en">Project Title</span><span data-lang="ar">عنوان المشروع</span> <span class="required">*</span></label>
+                                <input type="text" required data-placeholder-en="Official project name" data-placeholder-ar="الاسم الرسمي للمشروع">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><span data-lang="en">Implementing Organization</span><span data-lang="ar">الجهة المنفذة</span> <span class="required">*</span></label>
+                                <input type="text" required data-placeholder-en="Organization that implemented the project" data-placeholder-ar="المنظمة التي نفذت المشروع">
+                            </div>
+                            <div class="form-group">
+                                <label><span data-lang="en">Category</span><span data-lang="ar">الفئة</span> <span class="required">*</span></label>
+                                <select required>
+                                    <option value=""><span data-lang="en">Select category...</span><span data-lang="ar">اختر الفئة...</span></option>
+                                    <option value="1"><span data-lang="en">Cat 1: UN/Intl NGOs ($400K)</span><span data-lang="ar">الفئة 1: أمم متحدة/دولية ($400K)</span></option>
+                                    <option value="2"><span data-lang="en">Cat 2: National NGOs ($300K)</span><span data-lang="ar">الفئة 2: منظمات وطنية ($300K)</span></option>
+                                    <option value="3"><span data-lang="en">Cat 3: Government ($200K)</span><span data-lang="ar">الفئة 3: جهات حكومية ($200K)</span></option>
+                                    <option value="4"><span data-lang="en">Cat 4: Individuals ($100K)</span><span data-lang="ar">الفئة 4: أفراد ($100K)</span></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><span data-lang="en">Country of Implementation</span><span data-lang="ar">دولة التنفيذ</span> <span class="required">*</span></label>
+                                <input type="text" required data-placeholder-en="e.g., Kenya, Uganda" data-placeholder-ar="مثال: كينيا، أوغندا">
+                            </div>
+                            <div class="form-group">
+                                <label><span data-lang="en">Project Status</span><span data-lang="ar">حالة المشروع</span> <span class="required">*</span></label>
+                                <select required>
+                                    <option value=""><span data-lang="en">Select status...</span><span data-lang="ar">اختر الحالة...</span></option>
+                                    <option value="completed"><span data-lang="en">Completed & Evaluated</span><span data-lang="ar">مكتمل ومُقيَّم</span></option>
+                                    <option value="ongoing"><span data-lang="en">Ongoing (Phase 1 Complete)</span><span data-lang="ar">جارٍ (المرحلة 1 مكتملة)</span></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Project Description -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="number">3</span>
+                            <span data-lang="en">Project Description</span><span data-lang="ar">وصف المشروع</span>
+                        </h3>
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label><span data-lang="en">Executive Summary</span><span data-lang="ar">ملخص تنفيذي</span> <span class="required">*</span></label>
+                                <textarea required data-placeholder-en="Brief overview (200-300 words)" data-placeholder-ar="نظرة عامة موجزة (200-300 كلمة)"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label><span data-lang="en">SDG 7 Alignment</span><span data-lang="ar">التوافق مع الهدف 7</span> <span class="required">*</span></label>
+                                <textarea required data-placeholder-en="How does the project contribute to SDG 7?" data-placeholder-ar="كيف يساهم المشروع في تحقيق الهدف 7؟"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><span data-lang="en">Number of Beneficiaries</span><span data-lang="ar">عدد المستفيدين</span> <span class="required">*</span></label>
+                                <input type="text" required data-placeholder-en="e.g., 50,000" data-placeholder-ar="مثال: 50,000">
+                            </div>
+                            <div class="form-group">
+                                <label><span data-lang="en">Target Groups</span><span data-lang="ar">الفئات المستهدفة</span> <span class="required">*</span></label>
+                                <input type="text" required data-placeholder-en="e.g., Women, Children" data-placeholder-ar="مثال: النساء، الأطفال">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Documents -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="number">4</span>
+                            <span data-lang="en">Required Documents</span><span data-lang="ar">الوثائق المطلوبة</span>
+                        </h3>
+                        <p style="color: var(--agfund-gray); margin-bottom: 1.5rem;"><span data-lang="en">All documents must be in English. Large files: email to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="205245574152445360414746554e440e4f5247">[email&#160;protected]</a></span><span data-lang="ar">جميع الوثائق يجب أن تكون بالإنجليزية. الملفات الكبيرة: أرسلها إلى <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1b3a4b6a0b3a5b281a0a6a7b4afa5efaeb3a6">[email&#160;protected]</a></span></p>
+                        
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label><span data-lang="en">Nomination Letter</span><span data-lang="ar">خطاب الترشيح</span> <span class="required">*</span></label>
+                                <div class="file-upload">
+                                    <div class="file-upload-icon">📄</div>
+                                    <div class="file-upload-text"><span data-lang="en">Click to upload</span><span data-lang="ar">انقر للرفع</span></div>
+                                    <div class="file-upload-hint">PDF, max 10MB</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label><span data-lang="en">Project Document</span><span data-lang="ar">وثيقة المشروع</span> <span class="required">*</span></label>
+                                <div class="file-upload">
+                                    <div class="file-upload-icon">📁</div>
+                                    <div class="file-upload-text"><span data-lang="en">Click to upload</span><span data-lang="ar">انقر للرفع</span></div>
+                                    <div class="file-upload-hint">PDF/ZIP, max 50MB</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row single">
+                            <div class="form-group">
+                                <label><span data-lang="en">Evaluation Report</span><span data-lang="ar">تقرير التقييم</span> <span class="required">*</span></label>
+                                <div class="file-upload">
+                                    <div class="file-upload-icon">📊</div>
+                                    <div class="file-upload-text"><span data-lang="en">Click to upload</span><span data-lang="ar">انقر للرفع</span></div>
+                                    <div class="file-upload-hint">PDF, max 20MB</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Declaration -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <span class="number">5</span>
+                            <span data-lang="en">Declaration</span><span data-lang="ar">الإقرار</span>
+                        </h3>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="dec1" required>
+                            <label for="dec1"><span data-lang="en">I confirm I am nominating as a third party and have NOT participated in implementation or funding.</span><span data-lang="ar">أؤكد أنني أرشح كجهة ثالثة ولم أشارك في التنفيذ أو التمويل.</span> <span class="required">*</span></label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="dec2" required>
+                            <label for="dec2"><span data-lang="en">I confirm all information provided is accurate and complete.</span><span data-lang="ar">أؤكد أن جميع المعلومات المقدمة دقيقة وكاملة.</span> <span class="required">*</span></label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="dec3" required>
+                            <label for="dec3"><span data-lang="en">I understand nomination constitutes a moral engagement with AGFUND.</span><span data-lang="ar">أفهم أن الترشيح يمثل التزاماً أخلاقياً مع أجفند.</span> <span class="required">*</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn" style="background: var(--agfund-gray-light); color: var(--agfund-gray-dark);"><span data-lang="en">Save Draft</span><span data-lang="ar">حفظ المسودة</span></button>
+                        <button type="submit" class="btn btn-primary"><span data-lang="en">Submit Nomination →</span><span data-lang="ar">إرسال الترشيح ←</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3><span data-lang="en">AGFUND</span><span data-lang="ar">أجفند</span></h3>
+                <p><span data-lang="en">Arab Gulf Programme for Development - Supporting sustainable human development since 1980.</span><span data-lang="ar">البرنامج العربي الخليجي للتنمية - دعم التنمية البشرية المستدامة منذ 1980.</span></p>
+                <div class="footer-social">
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="YouTube">▶</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4><span data-lang="en">Quick Links</span><span data-lang="ar">روابط سريعة</span></h4>
+                <ul>
+                    <li><a href="#about"><span data-lang="en">About Us</span><span data-lang="ar">عنا</span></a></li>
+                    <li><a href="#programs"><span data-lang="en">Programs</span><span data-lang="ar">البرامج</span></a></li>
+                    <li><a href="#prize"><span data-lang="en">The Prize</span><span data-lang="ar">الجائزة</span></a></li>
+                    <li><a href="#winners"><span data-lang="en">Winners</span><span data-lang="ar">الفائزون</span></a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4><span data-lang="en">The Prize</span><span data-lang="ar">الجائزة</span></h4>
+                <ul>
+                    <li><a href="#nominate"><span data-lang="en">Nomination Form</span><span data-lang="ar">نموذج الترشيح</span></a></li>
+                    <li><a href="#"><span data-lang="en">Eligibility</span><span data-lang="ar">الأهلية</span></a></li>
+                    <li><a href="#"><span data-lang="en">FAQs</span><span data-lang="ar">أسئلة شائعة</span></a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4><span data-lang="en">Contact Us</span><span data-lang="ar">اتصل بنا</span></h4>
+                <ul>
+                    <li><a href="/cdn-cgi/l/email-protection#026b6c646d42636564776c662c6d7065"><span class="__cf_email__" data-cfemail="95fcfbf3fad5f4f2f3e0fbf1bbfae7f2">[email&#160;protected]</span></a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#a3d1c6d4c2d1c7d0e3c2c4c5d6cdc78dccd1c4"><span class="__cf_email__" data-cfemail="46342331273422350627212033282268293421">[email&#160;protected]</span></a></li>
+                    <li><span data-lang="en">Riyadh, Saudi Arabia</span><span data-lang="ar">الرياض، السعودية</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 <span data-lang="en">AGFUND. All Rights Reserved.</span><span data-lang="ar">أجفند. جميع الحقوق محفوظة.</span></p>
+            <p><span data-lang="en">Privacy Policy | Terms</span><span data-lang="ar">سياسة الخصوصية | الشروط</span></p>
+        </div>
     </footer>
 
-    <!-- AI Avatar Widget Embed -->
-    <div class="widget">
-        <script src="https://thynkbot.thynkwise.co.in/embed.js" data-bot-id="ba8b4009-d78d-485f-b96d-a1f5f8585692"></script>
-    </div>
-
-    <script>
-        // Smooth scrolling for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // ===== LANGUAGE TOGGLE FUNCTIONALITY =====
+        let currentLang = localStorage.getItem('agfund-lang') || 'en';
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('agfund-lang', lang);
+            
+            // Add transition class
+            document.body.classList.add('lang-transitioning');
+            
+            setTimeout(() => {
+                // Update HTML direction
+                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                document.documentElement.lang = lang;
+                
+                // Update button states
+                document.getElementById('btnEnglish').classList.toggle('active', lang === 'en');
+                document.getElementById('btnArabic').classList.toggle('active', lang === 'ar');
+                
+                // Update placeholders
+                document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+                    el.placeholder = el.getAttribute(`data-placeholder-${lang}`);
                 });
+                
+                // Remove transition class
+                document.body.classList.remove('lang-transitioning');
+            }, 150);
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+        });
+
+        // ===== FORM HANDLING =====
+        document.getElementById('nominationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = currentLang === 'ar' 
+                ? 'شكراً لترشيحك!\n\nتم استلام طلبك. سيقوم أجفند بمراجعة ترشيحك والتواصل معك إذا لزم الأمر.\n\nرقم المرجع: NOM-2026-' 
+                : 'Thank you for your nomination!\n\nYour submission has been received. AGFUND will review and contact you if needed.\n\nReference: NOM-2026-';
+            alert(msg + Math.random().toString(36).substr(2, 9).toUpperCase());
+        });
+
+        // ===== YEAR FILTER =====
+        document.querySelectorAll('.year-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.year-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+             // ===== FILE UPLOAD =====
+        document.querySelectorAll('.file-upload').forEach(upload => {
+            upload.addEventListener('click', function() {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.click();
+                input.onchange = function() {
+                    if (input.files.length > 0) {
+                        upload.querySelector('.file-upload-text').textContent = input.files[0].name;
+                        upload.style.borderColor = 'var(--agfund-green)';
+                        upload.style.backgroundColor = 'var(--agfund-cream)';
+                    }
+                };
             });
         });
     </script>
+
+    <!-- ===== AHMAD AI AVATAR WIDGET - thynkWISE POC ===== -->
+    <!-- AGFUND's AI Ambassador - Bilingual Arabic/English Support -->
+    <script src="https://thynkbot.thynkwise.co.in/embed.js" data-bot-id="ba8b4009-d78d-485f-b96d-a1f5f8585692"></script>
+
 </body>
 </html>
-```
